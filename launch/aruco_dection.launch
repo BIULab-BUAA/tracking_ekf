@@ -1,0 +1,17 @@
+<launch>
+  <arg name="aruco_config_path" default="$(find target_detection)/config/camera_info_d435.yaml" doc="this is a aruco config path" />
+  <arg name="flag_debug" default="true"/>
+  <arg name="is_plot" default="false"/>
+  <!--
+  <node pkg="target_detection" type="keyboard.py" name="keyboard"  />
+-->
+  <node pkg="target_detection" type="target_detect" name="target_detect" output="screen">
+    <param name="flag_debug" type="bool" value="$(arg flag_debug)"/>
+    <param name="aruco_config_path" type="string" value="$(arg aruco_config_path)"/>
+    <rosparam file="$(find target_detection)/config/camera.yaml" command="load" />
+    <remap from="~odom" to="/mavros/local_position/odom" />
+    <remap from="~image" to="/camera/color/image_raw" />
+    <remap from="~target_odom" to="/target_ekf_odom"/>
+  </node>
+  
+</launch>

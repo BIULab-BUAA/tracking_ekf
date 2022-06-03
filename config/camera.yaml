@@ -1,0 +1,31 @@
+camera_rate: 30.0
+camera_range: 7.0
+
+cam_width:  640
+cam_height: 480
+cam_fx:     462.266357421875
+cam_fy:     462.266357421875
+cam_cx:     320
+cam_cy:     240
+cam2body_R: [ 0.0,  0.0,  1.0,
+             -1.0,  0.0,  0.0,
+              0.0, -1.0,  0.0]
+# cam_pos in body frame
+cam2body_p: [0.0, 0.0, 0.05]
+
+aruco2body_R: [0.0, 0.0, -1.0,
+               -1.0, 0.0, 0.0,
+               0.0, 1.0, 0.0]
+
+aruco2body_p: [0.5, 0, 0.52]
+
+body2aruco_R: [0.0, -1.0, 0.0,
+               0.0, 0.0, 1.0,
+               -1.0, 0.0, 0.0]
+body2aruco_p: [0, -0.52, 0.5]
+
+
+# marker
+marker_size: 0.87
+aruco_type: "FRACTAL_5L_6"
+ekf_rate: 20
